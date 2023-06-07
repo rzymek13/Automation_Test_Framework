@@ -1,12 +1,11 @@
 package Utils;
 
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
-public class HooksSteps {
-
+public class BaseTest {
     @BeforeSuite
     public void beforeMethod() {
         WebDriverProvider.setupDriver();
     }
+
 }

@@ -2,6 +2,7 @@ package Utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ThreadGuard;
 import org.testng.annotations.BeforeMethod;
 
@@ -20,6 +21,8 @@ public class WebDriverProvider {
         System.out.println(browserName);
         if (Objects.equals(browserName, "chrome") && Objects.isNull(DRIVER.get())) {
             DRIVER.set(ThreadGuard.protect(new ChromeDriver()));
+        } else if (Objects.equals(browserName, "firefox") && Objects.isNull(DRIVER.get())) {
+            DRIVER.set(ThreadGuard.protect(new FirefoxDriver()));
         }
     }
 
