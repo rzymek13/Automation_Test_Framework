@@ -24,17 +24,17 @@ public class BaseTest {
         WebDriverProvider.getDriver().quit();
     }
 
-    public WebElement getWebEelement(By by) {
+    public static WebElement getWebEelement(By by) {
         waitForElementToExist(by);
         return WebDriverProvider.getDriver().findElement(by);
 
     }
 
-    public List<WebElement> getWebEelements(By by) {
+    public static List<WebElement> getWebEelements(By by) {
         return WebDriverProvider.getDriver().findElements(by);
     }
 
-    public void waitForElementToExist(By locator) {
+    public static void waitForElementToExist(By locator) {
         FluentWait<WebDriver> wait = new FluentWait<>(WebDriverProvider.getDriver());
         wait.ignoring(StaleElementReferenceException.class);
         wait.ignoring(NoSuchElementException.class);

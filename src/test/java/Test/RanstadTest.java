@@ -14,20 +14,20 @@ public class RanstadTest extends BaseTest {
 
     private static final String FILE_PATH = "src/test/java/Test/dataFiles/RandstadPL.xlsx";
 
-    @Test
-    private void randstadTestPl() {
+
+    public static void randstadTestPl() {
         WebDriverProvider.getDriver().get("https://www.randstad.pl/");
         acceptCookies();
         clickAllNavBarLinks();
         compareLinksFromFile();
     }
 
-    private void acceptCookies() {
+    public static void acceptCookies() {
         WebElement cookieAcceptButton = getWebEelement(By.xpath("//button[@id='onetrust-accept-btn-handler']"));
         cookieAcceptButton.click();
     }
 
-    private void clickFirstColumnLinks() {
+    public static void clickFirstColumnLinks() {
         List<WebElement> list = getWebEelements(By.xpath("//ul[@class='navigation__menu navigation__menu--sub hidden--until-l']//a"));
         for (int i = 1; i <= list.size(); i++) {
             String xpath = String.format("(//ul[@class='navigation__menu navigation__menu--sub hidden--until-l']//a)[%d]", i);
@@ -40,7 +40,7 @@ public class RanstadTest extends BaseTest {
         }
     }
 
-    private void clickAllNavBarLinks() {
+    public static void clickAllNavBarLinks() {
         List<WebElement> navBarList = getWebEelements(By.xpath("//ul[@class='navigation__menu navigation__menu--main hidden--until-l']/li"));
         for (int i = 1; i <= navBarList.size(); i++) {
             String xpath = String.format("(//ul[@class='navigation__menu navigation__menu--main hidden--until-l']/li/a)[%d]", i);
@@ -51,7 +51,7 @@ public class RanstadTest extends BaseTest {
         }
     }
 
-    private void compareLinksFromFile() {
+    public static void compareLinksFromFile() {
         SiteData.readData(FILE_PATH);
         for (int i = 0; i < SiteData.listOfLinks.size(); i++) {
             String string1 = String.valueOf(SiteData.listOfLinks.get(i));
